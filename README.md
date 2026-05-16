@@ -1,1 +1,1 @@
-# Grupo2_SaludPublica
+# Grupo2_Salud
