@@ -1,0 +1,107 @@
+\documentclass[12pt]{report}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{parskip}
+%\usepackage{tocloft}
+
+\geometry{a4paper, margin=1in}
+
+%\renewcommand{\cftsecfont}{\normalfont\MakeUppercase}
+%\renewcommand{\cftsecpagefont}{\normalfont}
+%\setlength{\cftsecindent}{20pt}
+
+\definecolor{highlight}{RGB}{255,255,0}
+\definecolor{azulito}{RGB}{85,142,213}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\MakeUppercase}
+  {}{0pt}{}
+
+\addto\captionsspanish{\renewcommand{\contentsname}{Contenido}}
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{}
+
+\begin{document}
+
+%=========================
+% PORTADA
+%=========================
+
+\thispagestyle{empty}
+
+\vspace*{2cm}
+
+\begin{center}
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\vspace{0.5cm}
+
+{\Huge\bfseries $title$}
+
+\vspace{0.5cm}
+
+\noindent\rule{\textwidth}{0.4pt}
+
+$if(subtitle)$
+\vspace{0.5cm}
+{\large $subtitle$}
+$endif$
+
+\vspace{2cm}
+
+\textbf{ASIGNATURA:} Métodos Numéricos
+
+\vspace{0.5cm}
+
+\textbf{INTEGRANTES:}
+
+$for(author)$
+$author$$sep$, 
+$endfor$
+
+\vspace{2cm}
+
+\textbf{FECHA DE ENTREGA:}
+
+$date$
+
+\end{center}
+
+\newpage
+
+% ÍNDICE
+
+\tableofcontents
+\thispagestyle{empty}
+
+\newpage
+
+% CONTENIDO
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+$body$
+
+% REFERENCIAS
+
+$if(bibliography)$
+
+\renewcommand{\bibname}{\MakeUppercase{REFERENCIAS}}
+
+\bibliographystyle{IEEEtran}
+
+$endif$
+
+\end{document}
